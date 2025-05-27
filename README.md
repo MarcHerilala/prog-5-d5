@@ -1,4 +1,4 @@
-# Coffee Machine Application
+# Coffee Machine 
 
 A simple simulation of a coffee preparation
 
