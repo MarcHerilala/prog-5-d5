@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class CoffeeMachine {
+public class CoffeeMachine {
     private final Map<Coffee, Integer> coffees;
     private boolean hasPower = true;
     private boolean hasWater = true;
@@ -18,25 +18,19 @@ class CoffeeMachine {
         coffees.put(coffee, coffees.getOrDefault(coffee, 0) + quantity);
     }
 
-    public void setPower(boolean power) {
-        this.hasPower = power;
-    }
+  
 
-    public void setWater(boolean water) {
-        this.hasWater = water;
-    }
-
-    public Coffee serveCoffee(Coffee coffee, Money money) {
+    public Coffee serveCoffee(Coffee coffee, Money money) throws Exception {
         if (!coffees.containsKey(coffee) || coffees.get(coffee) <= 0) {
-            throw new IllegalStateException("Sold out");
+            throw new Exception("Sold out");
         }
 
-        if (!hasPower) {
-            throw new RuntimeException("Power outage");
+        if (!this.hasPower) {
+            throw new Exception("Power outage");
         }
 
         if (!hasWater) {
-            throw new IllegalStateException("Out of water");
+            throw new Exception("Out of water");
         }
 
         money.pay(coffee.getPrice());
