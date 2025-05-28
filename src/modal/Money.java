@@ -14,7 +14,7 @@ public class Money {
         return amount;
     }
 
-    public int pay(int price) {
+    public int pay(double price) {
         if (price < 0) {
             throw new IllegalArgumentException("Price cannot be negative");
         }
